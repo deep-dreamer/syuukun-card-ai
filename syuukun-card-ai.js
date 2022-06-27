@@ -1,11 +1,14 @@
+// 大体このくらい1フレームに消費されると考えることにするぞ！
+const FRAME_INTERVAL = 30;
+
 // キーイベントを発火するぞ！
 function fireKeyEvent(key) {
 	if (key == null) return;
 	// すぐ押す
 	document.dispatchEvent(new KeyboardEvent("keydown", { key: key }));
-	// 35ミリ秒経ったらはなす
-	// 35ミリ秒経つ前にもう一回呼ばれたらバグると思う。呼ばないでね。
-	setTimeout(() => document.dispatchEvent(new KeyboardEvent("keyup", { key: key })), 35);
+	// しばらくしたらはなす
+	// たぶん呼び出されまくるとバグる。やめてね
+	setTimeout(() => document.dispatchEvent(new KeyboardEvent("keyup", { key: key })), FRAME_INTERVAL);
 }
 
 let stopAI = false; // 緊急停止！
@@ -103,22 +106,24 @@ function update() {
 	}
 }
 
-// 35 * 2 = 70 ミリ秒に1回処理が走るぞ！
-setInterval(update, 70);
+// 押してから離すのを認識するまでには2フレームかかるらしい・・・えーっ！？
+setInterval(update, FRAME_INTERVAL * 2);
 
 function main() {
 	// ここで次の動きを決めるよ
 	switch (getPhase()) {
 		case PHASE_STAGE_SELECT:
-			// めんどそう
+			// ステージ2をえらんでね
 			selectStage(2);
 			break;
 		case PHASE_CHALLENGE:
+			// じゅんじるが連打すると死ぬバグを仕込んだ！こっちもハックで対応だ！おー！
 			press(OK);
 			press(WAIT);
 			press(WAIT);
 			break;
 		case PHASE_BATTLE:
+			// たたかえ　しぬまで
 			battle();
 			break;
 	}
@@ -148,6 +153,10 @@ function selectStage(stageIndex) {
 }
 
 const CURSOR_TURN_END = -1;
+const CURSOR_PLAYER_FIELD_MIN = 6;
+const CURSOR_PLAYER_FIELD_MAX = 10;
+const CURSOR_ENEMY_FIELD_MIN = 11;
+const CURSOR_ENEMY_FIELD_MAX = 15;
 
 function getPlayerHands() {
 	return my_tehuda.map(getCardInfo);
@@ -237,7 +246,15 @@ function battle() {
 		case DUEL_FREE:
 			if (cursor != CURSOR_TURN_END) {
 				// カーソルの位置をリセットして操作しやすくしよう
-				press(UP);
+				if (cursor >= CURSOR_PLAYER_FIELD_MIN && cursor <= CURSOR_PLAYER_FIELD_MAX) {
+					press(UP); // プレイヤーのフィールド上にあるっぽい
+				} else if (cursor >= CURSOR_ENEMY_FIELD_MIN && cursor <= CURSOR_ENEMY_FIELD_MAX) {
+					press(LEFT); // 敵のフィールド上にあるっぽい
+				} else if (cursor < CURSOR_PLAYER_FIELD_MIN) {
+					press(LEFT); // なんか一番上の列？にありそう
+				} else {
+					press(UP); // 手札かな？
+				}
 				break;
 			}
 			const hands = getPlayerHands();
