@@ -84,6 +84,16 @@ const CARD_KENROUNARUSOUKOU = "堅牢なる装甲";
 const CARD_ZETTAINOTAMASII = "絶対の魂";
 const CARD_KYOUSINJA = "狂信者";
 const CARD_HAMETUNOKAMI = "破滅の神";
+const CARD_BURAKKUSYUUKUN = "ブラックしゅうくん";
+const CARD_HOJOSEKI = "補助石";
+const CARD_MUSYOUNOAI = "無償の愛";
+const CARD_NITOURYUUKENGI = "二刀流剣技！";
+const CARD_SINENNOAI = "深淵の愛";
+const CARD_TYOUBUSOU = "超武装！";
+const CARD_YAMIRYUUSYUU = "闇龍　シュウ";
+const CARD_YAMIKA = "闇化";
+const CARD_DORAGONBURESU = "ドラゴン・ブレス";
+const CARD_ZEROZONBIZU = "ZEROゾンビs";
 
 // 押すべきキーのキュー
 const queue = [];
@@ -113,11 +123,12 @@ function main() {
 	// ここで次の動きを決めるよ
 	switch (getPhase()) {
 		case PHASE_STAGE_SELECT:
-			// ステージ2をえらんでね
-			selectStage(2);
+			// ステージ3をえらんでね
+			selectStage(3);
 			break;
 		case PHASE_CHALLENGE:
 			// じゅんじるが連打すると死ぬバグを仕込んだ！こっちもハックで対応だ！おー！
+			initBattle();
 			press(OK);
 			press(WAIT);
 			press(WAIT);
@@ -227,6 +238,11 @@ function moveCursorToPlayerMonster(monsterIndex) {
 	}
 }
 
+let dragonKilled = false;
+function initBattle() {
+	dragonKilled = false;
+}
+
 function battle() {
 	switch (getDuelPhase()) {
 		case DUEL_ENEMY:
@@ -263,10 +279,10 @@ function battle() {
 			let magicCount = 0;
 			for (let i = 0; i < hands.length; i++) {
 				const hand = hands[i];
-				if (hand.card.name == CARD_PONYA_BIG) {
+				if (hand.card.name == CARD_HAMETUNOKAMI) {
 					if (monsterIndex == -1) monsterIndex = i;
 				}
-				if (hand.card.name == CARD_PONYA_REIN) {
+				if (hand.card.name == CARD_KINKYUUJITAI5) {
 					if (magicIndex == -1) magicIndex = i;
 					magicCount++;
 				}
@@ -274,21 +290,23 @@ function battle() {
 			const pfield = getPlayerField();
 			const efield = getEnemyField();
 			const monsterCount = pfield.numCards();
+			let enemyDragonCount = 0;
+			efield.forEach((i, card) => card.card.name == CARD_YAMIRYUUSYUU && enemyDragonCount++);
 
 			if (monsterCount < 5 && monsterIndex != -1) {
-				// ぽにゃを召喚しよう
+				// 破滅の神を召喚しよう
 				moveCursorToPlayerHand(monsterIndex);
 				press(OK);
 				press(OK);
 				break;
 			}
 
-			const monsterCountThreshold = magicCount >= 3 ? 2 : 3;
-			if (monsterCount >= monsterCountThreshold && magicIndex != -1 && efield.numCards() > 0) {
-				// ぽにゃレインを発動しよう
+			if (enemyDragonCount > 0 && magicIndex != -1) {
+				// 緊急事態を発動しよう
 				moveCursorToPlayerHand(magicIndex);
 				press(OK);
 				press(OK);
+				dragonKilled = true;
 				break;
 			}
 
@@ -298,7 +316,7 @@ function battle() {
 					attackableIndex = i;
 				}
 			});
-			if (attackableIndex != -1) {
+			if (attackableIndex != -1 && !dragonKilled) {
 				// なんでもいいから攻撃しろ
 				moveCursorToPlayerMonster(attackableIndex);
 				press(OK);
