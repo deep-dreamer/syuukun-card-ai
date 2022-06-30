@@ -186,6 +186,8 @@ function getCardInfo(rawCard) {
 		card: getBaseCardInfo(rawCard.card),
 		atk: rawCard.ATK,
 		hp: rawCard.HP,
+		isAce: (includeTopAce = true) =>
+			rawCard.state.indexOf("ACE") != -1 || (includeTopAce && rawCard.state.indexOf("TOP_ACE") != -1),
 		attackCount: rawCard.can_ATK,
 	};
 }
@@ -291,12 +293,31 @@ function battle() {
 			const efield = getEnemyField();
 			const monsterCount = pfield.numCards();
 			let enemyDragonCount = 0;
-			efield.forEach((i, card) => card.card.name == CARD_YAMIRYUUSYUU && enemyDragonCount++);
+			let enemyDragonAceCount = 0;
+			efield.forEach((i, card) => {
+				if (card.card.name == CARD_YAMIRYUUSYUU) {
+					if (card.isAce()) {
+						// ACE だったら？いや～キツいっす
+						enemyDragonAceCount++;
+					} else {
+						// ぶっころす
+						enemyDragonCount++;
+					}
+				}
+			});
 
 			if (monsterCount < 5 && monsterIndex != -1) {
 				// 破滅の神を召喚しよう
 				moveCursorToPlayerHand(monsterIndex);
 				press(OK);
+				press(OK);
+				break;
+			}
+			
+			if (enemyDragonAceCount > 0) {
+				// 勝てんｗ
+				press(CANCEL);
+				press(UP);
 				press(OK);
 				break;
 			}
