@@ -51,6 +51,8 @@ function getDuelPhase() {
 	return duel_phase == DUEL_ENEMY && aite_phase == DUEL_ENEMY_MAGIC_CAST ? aite_phase : duel_phase;
 }
 
+const CARD_TEST_CARD = "テストカード";
+const CARD_TEST_CARD2 = "テストカード2";
 const CARD_SYUUKUN = "しゅうくん";
 const CARD_HOJOROBO = "補助ロボ";
 const CARD_KINKYUUJITAI5 = "緊急事態─５─";
@@ -94,6 +96,87 @@ const CARD_YAMIRYUUSYUU = "闇龍　シュウ";
 const CARD_YAMIKA = "闇化";
 const CARD_DORAGONBURESU = "ドラゴン・ブレス";
 const CARD_ZEROZONBIZU = "ZEROゾンビs";
+const CARD_PONYAAIDORU = "ぽにゃアイドル♪";
+const CARD_AIDORUKOURIN = "アイドル降臨！";
+const CARD_HAMETUNOSINKOU = "破滅の信仰";
+const CARD_SENTANSEISEI = "先端再生";
+const CARD_IKKAKUDAIJA_2 = "双頭の一角大蛇";
+const CARD_ITTOURYOUDAN = "一刀両断";
+const CARD_PONYASYOUKANSI = "ぽにゃ召喚士";
+const CARD_ZOUSYOKU = "増殖…！？";
+const CARD_SUKURAPPUGOREMU = "スクラップゴーレム";
+const CARD_SUKURAPPUBIRUDO = "スクラップ&ビルド";
+const CARD_SASORI_HUJOU = "サソリ_不浄";
+const CARD_DOKUHAKINOKO = "毒吐キノコ";
+const CARD_KARAMARUITO = "絡まる糸";
+const CARD_OOKAMETAKE = "大亀茸";
+const CARD_MOUKYODOKUDAITAKE = "猛巨毒大茸";
+const CARD_ROZUSYUU = "ローズ・シュウ";
+const CARD_KANBANSAN = "看板さん";
+const CARD_GURUMESINJIDAI = "グルメ新時代";
+const CARD_KINKYUUJITAI3 = "緊急事態─３─";
+const CARD_MIRYOUSURUHITOMI = "魅了する瞳";
+const CARD_KANKYOUSEIHAGOREMU = "環境制覇ゴーレム";
+const CARD_DOKUZOMENAIHU = "毒染めナイフ";
+const CARD_TIZOMENAIHU = "血染めナイフ";
+const CARD_MUZOMENAIHU = "無染めナイフ";
+const CARD_NAIHUZOMEOTOKO = "ナイフ染め男";
+const CARD_SABITAYARI = "錆びた槍";
+const CARD_KANTUUYA = "貫通矢";
+const CARD_SABITATAIKEN = "錆びた大剣";
+const CARD_UEPONSARUBEJI = "ウエポン・サルベージ";
+const CARD_HOKAKUSUNEKU = "捕獲スネーク";
+const CARD_ISSEIHOKAKU = "一斉捕獲";
+const CARD_AOONI = "青鬼";
+const CARD_AKAONI = "赤鬼";
+const CARD_SUNATTIDORAGON = "盗竜　スナッチドラゴン";
+const CARD_TOURYUUZANNOSIREN = "盗竜山の試練";
+const CARD_RYUUKON = "龍魂";
+const CARD_IKARIBAKUHATU = "怒り爆発！";
+const CARD_NEZUMI = "ねずみ";
+const CARD_TYUUNEZUMI = "中ねずみ";
+const CARD_DEKANEZUMI = "デカねずみ";
+const CARD_DOKUNEZUMI = "毒ねずみ";
+const CARD_TAMANEZUMI = "玉ねずみ";
+const CARD_TATUJINNEZUMI = "達人ねずみ";
+const CARD_KYUUSONEKOWOKAMU = "窮鼠猫を嚙む";
+const CARD_TAMANORINEZUMI = "玉乗りねずみ";
+const CARD_TAMANORIDOKUNEZUMI = "玉乗り毒ねずみ";
+const CARD_TAMANORI = "玉乗り";
+const CARD_TYUUKUN = "ちゅーくん";
+const CARD_MOTINREDDO = "もちん・レッド";
+const CARD_MOTINBURUU = "もちん・ブルー";
+const CARD_MOTINGURIN = "もちん・グリーン";
+const CARD_MOTINPINKU = "もちん・ピンク";
+const CARD_MOTINIERO = "もちん・イエロー";
+const CARD_HIROBAKUTAN = "ヒーロー爆誕！";
+const CARD_MOTINKOSUMO = "もちん・コスモ";
+const CARD_GINGAPAWA = "銀河☆パワー！";
+const CARD_MOTINBURAKKU = "もちん・ダーク";
+const CARD_YAMIYONOKAGE = "闇夜の影";
+const CARD_OU = "王";
+const CARD_EKKEN = "謁見";
+const CARD_BUPPINHANBAI = "物品販売";
+const CARD_KAMEKO = "亀子";
+const CARD_SASORI_MUSUME = "サソリ_娘";
+const CARD_OPEROBO = "オペレーションロボット";
+const CARD_DAIJANOTUKAI = "大蛇の使い";
+const CARD_SOURUGADONA = "ソウル・ガードナー";
+const CARD_HAMETUWOMATUMONO = "破滅を待つ者";
+const CARD_ZEROZEROZERO = "ゼロ、ゼロ！ゼロォ！！";
+const CARD_PUPUKURAUDO = "ぷーぷーくらうど";
+const CARD_PANTINGUKURAUDO = "ぱんちんぐくらうど";
+const CARD_HAPPISUKORU = "ハッピー❤スコール";
+const CARD_HITUJIKURAUDO = "ひつじくらうど";
+const CARD_DABURUKURAUDO = "だぶるくらうど";
+const CARD_HIKOUKIGUMO = "ひこうきぐも";
+const CARD_AMAKURAUDO = "あまくらうど";
+const CARD_POIZUNKURAUDO = "ぽいずんくらうど";
+const CARD_BIRIBIRIKURAUDO = "びりびりくらうど";
+const CARD_ENJERUKURAUDO = "えんじぇるくらうど";
+const CARD_KURAUDO = "クラウド";
+const CARD_DETAAPPURODO = "↑データアップロード↑";
+const CARD_TAIHUU0GOU = "台風0号";
 
 // 押すべきキーのキュー
 const queue = [];
@@ -119,14 +202,24 @@ function update() {
 // 押してから離すのを認識するまでには2フレームかかるらしい・・・えーっ！？
 setInterval(update, FRAME_INTERVAL * 2);
 
+const targetState = 7;
+const clearMiniStageValue = 1; // でゆっちがさいあくなのでステージによって変わります
+
+// デッキは破滅の神とドラゴンブレスと超強化と闇化がいい感じに混ざるようにしといてね
+
 function main() {
 	// ここで次の動きを決めるよ
 	switch (getPhase()) {
 		case PHASE_STAGE_SELECT:
-			// ステージ3をえらんでね
-			selectStage(3);
+			// ステージをえらんでね
+			selectStage(targetState);
 			break;
 		case PHASE_CHALLENGE:
+			if (mini_stage == clearMiniStageValue) {
+				if (cursor2 != 0) {
+					press(LEFT); // ツイートしないでね
+				}
+			}
 			// じゅんじるが連打すると死ぬバグを仕込んだ！こっちもハックで対応だ！おー！
 			initBattle();
 			press(OK);
@@ -141,7 +234,6 @@ function main() {
 }
 
 const CURSOR_PREV_STAGE = 0;
-const CURSOR_CHOOSE_STAGE = 3;
 const CURSOR_EDIT_DECK = 2;
 
 function selectStage(stageIndex) {
@@ -169,27 +261,128 @@ const CURSOR_PLAYER_FIELD_MAX = 10;
 const CURSOR_ENEMY_FIELD_MIN = 11;
 const CURSOR_ENEMY_FIELD_MAX = 15;
 
+// カードの種類ごとに与えられるデータ
+class CardBase {
+	/**
+	 * @param {string} name
+	 * @param {number} atk
+	 * @param {number} hp
+	 */
+	constructor(name, atk, hp) {
+		this.name = name;
+		this.atk = atk;
+		this.hp = hp;
+	}
+}
+
+// 個別のカードごとに与えられるデータ
+class Card {
+	/**
+	 * @param {CardBase} base
+	 * @param {number} atk
+	 * @param {number} hp
+	 * @param {number} attackCount
+	 * @param {string[]} states
+	 */
+	constructor(base, atk, hp, attackCount, states) {
+		this.base = base;
+		this.atk = atk;
+		this.hp = hp;
+		this.attackCount = attackCount;
+		this.states = states;
+	}
+
+	isAce(includeTopAce = true) {
+		return this.states.indexOf("ACE") != -1 || (includeTopAce && this.states.indexOf("TOP_ACE") != -1);
+	}
+}
+
+// カードの配列。手札かフィールド。フィールドの場合は空き場所に null が入るぞ！
+class CardArray {
+	/**
+	 * @param {(Card | null)[]} cards
+	 */
+	constructor(cards) {
+		this.cards = cards;
+	}
+
+	/**
+	 * @param {string | null} name
+	 */
+	indexOf(name) {
+		for (let i = 0; i < this.cards.length; i++) {
+			const card = this.cards[i];
+			if ((card == null && name == null) || (card != null && card.base.name == name)) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * @param {string | null} name
+	 */
+	count(name) {
+		let count = 0;
+		for (let i = 0; i < this.cards.length; i++) {
+			const card = this.cards[i];
+			if ((card == null && name == null) || (card != null && card.base.name == name)) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	countNonNull() {
+		let count = 0;
+		for (let i = 0; i < this.cards.length; i++) {
+			const card = this.cards[i];
+			if (card != null) {
+				count++;
+			}
+		}
+		return count;
+	}
+
+	/**
+	 * @param {(index:number, card:Card) => void} f
+	 */
+	forEachNonNull(f) {
+		for (let i = 0; i < this.cards.length; i++) {
+			const card = this.cards[i];
+			if (card != null) {
+				f(i, card);
+			}
+		}
+	}
+
+	/**
+	 * @param {string | null} name
+	 * @param {(index:number, card:Card) => void} f
+	 */
+	forEach(name, f) {
+		for (let i = 0; i < this.cards.length; i++) {
+			const card = this.cards[i];
+			if ((card == null && name == null) || (card != null && card.base.name == name)) {
+				f(i, card);
+			}
+		}
+	}
+}
+
+// 手札を返すぞ！
 function getPlayerHands() {
-	return my_tehuda.map(getCardInfo);
+	return new CardArray(my_tehuda.map(makeCard));
 }
 
-function getBaseCardInfo(rawBaseCard) {
-	return {
-		name: rawBaseCard.name,
-		atk: rawBaseCard.ATK,
-		hp: rawBaseCard.HP,
-	};
+// カードの基礎情報を返すぞ！
+function makeCardBase(rawCardBase) {
+	return new CardBase(rawCardBase.name, rawCardBase.atk, rawCardBase.hp);
 }
 
-function getCardInfo(rawCard) {
-	return {
-		card: getBaseCardInfo(rawCard.card),
-		atk: rawCard.ATK,
-		hp: rawCard.HP,
-		isAce: (includeTopAce = true) =>
-			rawCard.state.indexOf("ACE") != -1 || (includeTopAce && rawCard.state.indexOf("TOP_ACE") != -1),
-		attackCount: rawCard.can_ATK,
-	};
+// カードの情報を返すぞ！
+function makeCard(rawCard) {
+	return new Card(makeCardBase(rawCard.card), rawCard.ATK, rawCard.HP, rawCard.can_ATK, rawCard.state);
 }
 
 function getPlayerField() {
@@ -200,30 +393,13 @@ function getEnemyField() {
 	return getFieldInfo(teki_ba);
 }
 
+// フィールド情報を返すぞ！
 function getFieldInfo(rawField) {
 	const cards = [];
 	for (let i = 0; i < 5; i++) {
-		cards.push(rawField[i] == "" ? null : getCardInfo(rawField[i]));
+		cards.push(rawField[i] == "" ? null : makeCard(rawField[i]));
 	}
-	return {
-		cards: cards,
-		forEach: function (callbackIndexCard) {
-			for (let i = 0; i < 5; i++) {
-				if (cards[i] != null) {
-					callbackIndexCard(i, cards[i]);
-				}
-			}
-		},
-		numCards: function () {
-			let count = 0;
-			for (let i = 0; i < 5; i++) {
-				if (cards[i] != null) {
-					count++;
-				}
-			}
-			return count;
-		},
-	};
+	return new CardArray(cards);
 }
 
 function moveCursorToPlayerHand(handIndex) {
@@ -237,6 +413,18 @@ function moveCursorToPlayerMonster(monsterIndex) {
 	press(DOWN);
 	for (let i = 0; i < monsterIndex; i++) {
 		press(DOWN);
+	}
+}
+
+function moveToTopPlace() {
+	let minPos = 5;
+	let maxPos = -1;
+	getPlayerField().forEachNull((i) => {
+		minPos = Math.min(minPos, i);
+		maxPos = Math.max(maxPos, i);
+	});
+	for (let i = 0; i < maxPos - minPos; i++) {
+		press(UP);
 	}
 }
 
@@ -276,74 +464,206 @@ function battle() {
 				break;
 			}
 			const hands = getPlayerHands();
-			let monsterIndex = -1;
-			let magicIndex = -1;
-			let magicCount = 0;
-			for (let i = 0; i < hands.length; i++) {
-				const hand = hands[i];
-				if (hand.card.name == CARD_HAMETUNOKAMI) {
-					if (monsterIndex == -1) monsterIndex = i;
-				}
-				if (hand.card.name == CARD_KINKYUUJITAI5) {
-					if (magicIndex == -1) magicIndex = i;
-					magicCount++;
-				}
-			}
 			const pfield = getPlayerField();
 			const efield = getEnemyField();
-			const monsterCount = pfield.numCards();
-			let enemyDragonCount = 0;
-			let enemyDragonAceCount = 0;
-			efield.forEach((i, card) => {
-				if (card.card.name == CARD_YAMIRYUUSYUU) {
-					if (card.isAce()) {
-						// ACE だったら？いや～キツいっす
-						enemyDragonAceCount++;
-					} else {
-						// ぶっころす
-						enemyDragonCount++;
+
+			const numHametsu = hands.count(CARD_HAMETUNOKAMI);
+			const numBusou = hands.count(CARD_TYOUBUSOU);
+			const numBreath = hands.count(CARD_DORAGONBURESU);
+			const numYamika = hands.count(CARD_YAMIKA);
+
+			const numFieldHametsu = pfield.count(CARD_HAMETUNOKAMI);
+			const numFieldYami = pfield.count(CARD_YAMIRYUUSYUU);
+
+			if (pfield.countNonNull() == 0) {
+				// 自分のフィールドに誰もいないっぽいぞ！
+				if (numHametsu > 0) {
+					// 破滅の神が召喚可能
+					moveCursorToPlayerHand(hands.indexOf(CARD_HAMETUNOKAMI));
+					press(OK);
+					press(OK);
+					break;
+				}
+			} else if (numFieldHametsu > 0) {
+				// 自分のフィールドに破滅の神がいるっぽいぞ！
+				let attackableHametsuIndex = -1;
+				pfield.forEach(CARD_HAMETUNOKAMI, (i, card) => {
+					if (attackableHametsuIndex == -1 && card.attackCount > 0) {
+						attackableHametsuIndex = i;
+					}
+				});
+				if (attackableHametsuIndex != -1) {
+					// 攻撃できるやつがいる
+					if (efield.countNonNull() > 0) {
+						// 敵がいるらしいのでとりあえず殴っとくか
+						moveCursorToPlayerMonster(attackableHametsuIndex);
+						press(OK);
+						press(OK);
+						break;
 					}
 				}
-			});
-
-			if (monsterCount < 5 && monsterIndex != -1) {
-				// 破滅の神を召喚しよう
-				moveCursorToPlayerHand(monsterIndex);
-				press(OK);
-				press(OK);
-				break;
+				if (numYamika > 0) {
+					// 闇化可能
+					moveCursorToPlayerHand(hands.indexOf(CARD_YAMIKA));
+					// あ～あ、知らないんだから！
+					press(OK);
+					press(OK);
+					break;
+				}
+				if (attackableHametsuIndex != -1) {
+					if (efield.countNonNull() == 0) {
+						// ダイレクトアタックチャンス！！！！！！
+						if (numBusou > 0) {
+							// 強くしてから殴った方がいいよね
+							moveCursorToPlayerHand(hands.indexOf(CARD_TYOUBUSOU));
+							press(OK);
+							press(OK);
+							break;
+						}
+						// ぐえー
+						moveCursorToPlayerMonster(attackableHametsuIndex);
+						press(OK);
+						press(OK);
+						break;
+					}
+				}
+			} else if (numFieldYami > 0) {
+				// 闇龍・シュウがおるな
+				let attackableYamiIndex = -1;
+				pfield.forEach(CARD_YAMIRYUUSYUU, (i, card) => {
+					if (attackableYamiIndex == -1 && card.attackCount > 0) {
+						attackableYamiIndex = i;
+					}
+				});
+				if (attackableYamiIndex != -1 && efield.countNonNull() > 0 && numBreath > 0) {
+					// 敵がいて、ドラゴンブレスがある・・・あっ（察し）
+					if (hands.count(CARD_YAMIKA) > 0 || hands.count(CARD_HAMETUNOKAMI) > 0) {
+						// さらに、闇化か破滅の神がいる
+						// 行けるぞ！ドラゴンブレス発動！！！！！！！！！！１
+						moveCursorToPlayerHand(hands.indexOf(CARD_DORAGONBURESU));
+						press(OK);
+						press(OK);
+						break;
+					} else {
+						// ちょっと足りなそう。
+					}
+				}
+				if (efield.countNonNull() == 0) {
+					// 敵がおらん
+					if (attackableYamiIndex != -1) {
+						// ダイレクトアタックチャンス！！！！！！
+						if (numBusou > 0) {
+							// 強くしてから殴った方がいいよね
+							moveCursorToPlayerHand(hands.indexOf(CARD_TYOUBUSOU));
+							press(OK);
+							press(OK);
+							break;
+						}
+						// ぐえー
+						moveCursorToPlayerMonster(attackableYamiIndex);
+						press(OK);
+						press(OK);
+						break;
+					} else {
+						// もう攻撃できない？なんだと！
+						if (hands.count(CARD_YAMIKA) > 0) {
+							// もう一回闇化すればいいぢゃん（笑）
+							moveCursorToPlayerHand(hands.indexOf(CARD_YAMIKA));
+							press(OK);
+							press(OK);
+							break;
+						} else if (numHametsu > 0) {
+							// う～んしょうがない破滅の神で殴るか
+							moveCursorToPlayerHand(hands.indexOf(CARD_HAMETUNOKAMI));
+							press(OK);
+							press(OK);
+							break;
+						}
+					}
+				} else {
+					// 敵がおる
+					if (attackableYamiIndex != -1) {
+						// まあいいやとりあえず殴っとこ
+						moveCursorToPlayerMonster(attackableYamiIndex);
+						press(OK);
+						press(OK);
+						break;
+					}
+				}
 			}
 			
-			if (enemyDragonAceCount > 0) {
-				// 勝てんｗ
-				press(CANCEL);
-				press(UP);
-				press(OK);
-				break;
-			}
-
-			if (enemyDragonCount > 0 && magicIndex != -1) {
-				// 緊急事態を発動しよう
-				moveCursorToPlayerHand(magicIndex);
-				press(OK);
-				press(OK);
-				dragonKilled = true;
-				break;
-			}
-
-			let attackableIndex = -1;
-			pfield.forEach((i, hand) => {
-				if (hand.attackCount > 0 && attackableIndex == -1) {
-					attackableIndex = i;
-				}
+			// やることねーなー
+			let sumHp = 0;
+			pfield.forEachNonNull((i, card) => {
+				sumHp += card.hp;
 			});
-			if (attackableIndex != -1 && !dragonKilled) {
-				// なんでもいいから攻撃しろ
-				moveCursorToPlayerMonster(attackableIndex);
-				press(OK);
-				press(OK);
-				break;
+			if (sumHp < 30) {
+				// ワンチャン死にそうじゃない？追加でカードだしとこ
+				if (numHametsu > 0) {
+					moveCursorToPlayerHand(hands.indexOf(CARD_HAMETUNOKAMI));
+					press(OK);
+					press(OK);
+					break;
+				}
 			}
+
+			// let monsterIndex = hands.indexOf(CARD_HAMETUNOKAMI);
+			// let magicIndex = hands.indexOf(CARD_KINKYUUJITAI5);
+			// let magicCount = hands.count(CARD_KINKYUUJITAI5);
+			// const monsterCount = pfield.countNonNull();
+			// let enemyDragonCount = 0;
+			// let enemyDragonAceCount = 0;
+			// efield.forEachNonNull((i, card) => {
+			// 	if (card.base.name == CARD_YAMIRYUUSYUU) {
+			// 		if (card.isAce()) {
+			// 			// ACE だったら？いや～キツいっす
+			// 			enemyDragonAceCount++;
+			// 		} else {
+			// 			// ぶっころす
+			// 			enemyDragonCount++;
+			// 		}
+			// 	}
+			// });
+
+			// if (monsterCount < 5 && monsterIndex != -1) {
+			// 	// 破滅の神を召喚しよう
+			// 	moveCursorToPlayerHand(monsterIndex);
+			// 	press(OK);
+			// 	moveToTopPlace();
+			// 	press(OK);
+			// 	break;
+			// }
+
+			// if (enemyDragonAceCount > 0) {
+			// 	// 勝てんｗ
+			// 	press(CANCEL);
+			// 	press(UP);
+			// 	press(OK);
+			// 	break;
+			// }
+
+			// if (enemyDragonCount > 0 && magicIndex != -1) {
+			// 	// 緊急事態を発動しよう
+			// 	moveCursorToPlayerHand(magicIndex);
+			// 	press(OK);
+			// 	press(OK);
+			// 	dragonKilled = true;
+			// 	break;
+			// }
+
+			// let attackableIndex = -1;
+			// pfield.forEachNonNull((i, hand) => {
+			// 	if (hand.attackCount > 0 && attackableIndex == -1) {
+			// 		attackableIndex = i;
+			// 	}
+			// });
+			// if (attackableIndex != -1 && !dragonKilled) {
+			// 	// なんでもいいから攻撃しろ
+			// 	moveCursorToPlayerMonster(attackableIndex);
+			// 	press(OK);
+			// 	press(OK);
+			// 	break;
+			// }
 
 			// やることがなくなったらターンエンドしとこ
 			press(OK);
